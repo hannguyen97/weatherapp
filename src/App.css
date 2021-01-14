@@ -36,3 +36,160 @@
     transform: rotate(360deg);
   }
 }
+.nav-item{
+  margin-left: 10px;
+}
+.form-control{
+  border-radius: 30px;
+}
+.navbar{
+  background-color: rgb(59, 129, 59);
+}
+.location{
+  background-color: rgb(155, 223, 155);
+}
+.location a{
+  text-decoration: none;
+}
+.location-style{
+  margin-left: 30px;
+  padding: 5px 15px;
+}
+.appWrapper{
+  
+  background-color: rgb(110, 236, 116);
+  background-image: linear-gradient(#9bc28c,#d2e2a6,#fcf9f7);
+}
+
+ .LargeScreens { 
+  margin: 12px auto!important;
+
+    display: grid;
+    grid-template-columns: minmax(0,1fr) 350px;
+    grid-column-gap: 12px;
+    max-width: 1162px;
+    z-index: 100;
+}
+.Card-main{
+  width: 100%;
+    grid-column: span 12;
+    color: white;
+    margin-bottom: 15px
+}
+.locationPageTitle{
+
+  font-size: 1.5rem;
+    line-height: 1.08em;
+}
+.locationName{
+  font-size: 1rem;
+  padding-left: 4px;
+}
+.timestamp{
+  opacity: .65;
+  font-size: 1rem;
+}
+.Card-main .card{
+  padding: 20px 33px 22px 27px;
+  background-image: linear-gradient(#3f9852,#76a389);
+}
+.TemperatureValue{
+  font-size: 6rem;
+
+  display: block;
+    position: relative;
+    line-height: .96em;
+    font-weight: 500;
+    text-align: left;
+}
+.phraseValue{
+  font-size: 1.5rem;
+}
+.CurrentConditions-dataWrapper{
+  display: flex;
+  justify-content: space-between;
+}
+.CurrentConditions-secondary{
+  text-align: right;
+  margin-top: -16px;
+}
+.CurrentConditions-secondary .fa-cloud-sun{
+  font-size: 100px;
+}
+.tempHiLoValue{
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.TodayweatherCard {
+  box-shadow: 0 0 12px 0 rgba(0,0,0,.2);
+  color: #282c34;
+  padding: 16px;
+  border-radius: 6px;
+
+}
+.TableWrapper{
+  text-align: center;
+}
+.WeatherTable--columns{
+  margin-top: 0;
+    padding: 0 8px;
+
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+.WeatherTable--columns li{
+  border-width: 0 1px 0 0;
+  padding: 0 15px;
+  padding-left: 0;
+  margin: 20px;
+  border-style: solid;
+  cursor: pointer;
+  border-image: linear-gradient(180deg,hsla(0,0%,87.1%,0) 0,#dedede 25%,#dedede 70%,hsla(0,0%,87.1%,0) 85%,hsla(0,0%,87.1%,0)) 1 100%;
+}
+.Column-label{
+  font-size: 1.125rem;
+    line-height: 1.66em;
+    color: #6f7585;
+    margin: 0;
+    padding-bottom: 5px;
+    text-align: center;
+
+}
+.Column-temp{
+  font-size: 2.25rem;
+    line-height: .83em; 
+    color: #6f7585;
+   
+}
+.Column-icon{
+  margin: 10px 0 0;
+  position: relative;
+  cursor: pointer;
+}
+.Column-icon .fas{
+  font-size: 50px;
+}
+.Column-precip{
+  font-size: 1.125rem;
+  color: #2b2b2b;
+  cursor: pointer;
+}
+.TodayDetailsCard-detailsContainer{
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+.TodayDetailsCard-detailsContainer .ListItem{
+  border-top: 1px solid #dedede!important;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+
+}
+
+.todayDetailCard {
+  text-align: center;
+  font-size: 2rem;
+}

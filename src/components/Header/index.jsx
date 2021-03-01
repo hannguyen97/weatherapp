@@ -1,11 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import Search from './Search';
 
 Header.propTypes = {
   
 };
 
 function Header(props) {
+  const [inputs, setInputs] = useState({
+    keyword : ""
+ });
+ const onHandleSearch =(keyword) => {
+  props.onSearch1(keyword);
+      // setInputs(keyword)
+      // console.log(keyword)
+  }
+
   return (
     <div>
        <header>
@@ -33,10 +42,7 @@ function Header(props) {
                   <a className="nav-link" href="#">Radar <span className="sr-only">(current)</span></a>
                 </li>
               </ul>
-              <form className="form-inline my-2 my-lg-0">
-                <input className="form-control mr-sm-2" type="text" placeholder="Search" />
-                <button className="btn  my-2 my-sm-0" type="submit"><i className="fas fa-search-location" /></button>
-              </form>
+             <Search    onSearch={onHandleSearch}></Search>
             </div>
           </div>
         </nav>

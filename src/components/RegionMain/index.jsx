@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import Clock from '../Clock/Clock';
 
 RegionMain.propTypes = {
   
@@ -8,15 +9,17 @@ RegionMain.propTypes = {
 function RegionMain() {
   const [weather, setWeather] = useState([]);
   useEffect(()=>{
-      fetch('http://api.openweathermap.org/data/2.5/find?lat=21&lon=105.5&cnt=10&appid=6150648e44d686852caa04818c28403d')
+      fetch('http://api.openweathermap.org/data/2.5/weather?q=Turan&appid=6150648e44d686852caa04818c28403d')
            .then(res => res.json())
            .then((data) => {
-             setWeather(data.list);
-             console.log("weather",weather)
+             setWeather(data);
+             console.log("weatherRG",weather)
           })
            
   },[])
- 
+
+
+
 
   return (
     <div>
@@ -26,20 +29,20 @@ function RegionMain() {
               <section className="card">
                 <div className="CurrentConditions-header">
                   <h1 className="locationPageTitle">
-                    <strong>   </strong>
+                    <strong>  {weather.name} {weather.sys?.country} </strong>
                   </h1>
-                  <div className="timestamp">As of 9:35 am ICT</div>
+                  <div className="timestamp">As of <Clock></Clock> am ICT</div>
                 </div>
                 <div className="CurrentConditions-dataWrapper">
                   <div className="CurrentConditions-primary">
-                    <span className="TemperatureValue">21°</span>
-                    <div className="phraseValue"></div>
+                    <span className="TemperatureValue">{weather.main?.temp -273.15}°C</span>
+                    <div className="phraseValue">{weather?.weather?.description}</div>
                   </div>
                   <div className="CurrentConditions-secondary">
                     <i className="fas fa-cloud-sun" />
                     <div className="tempHiLoValue"> 
-                      <span>21°</span>
-                      /<span>16°</span>
+                      <span>{weather.main?.temp_max -273.15}°</span>
+                      /<span>{weather.main?.temp_min -273.15}°</span>
                     </div>
                   </div>
                 </div>

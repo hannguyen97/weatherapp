@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Location from '../Location/Location';
 import Search from './Search';
 
 Header.propTypes = {
@@ -6,6 +7,7 @@ Header.propTypes = {
 };
 
 function Header(props) {
+  
   const [inputs, setInputs] = useState({
     keyword : ""
  });
@@ -46,15 +48,9 @@ function Header(props) {
             </div>
           </div>
         </nav>
-        <div className="location">
-          <div className="container">
-            <a className="location-style">
-              <i className="fas fa-cloud-sun" />
-              <span>19° C</span>
-              <span>An Khe,Da Nang, VN</span>
-            </a>
-          </div>
-        </div>
+      
+        <Location ></Location>
+
       </header>
     </div>
   );

@@ -34,18 +34,22 @@ function App() {
     // Bỏ dấu câu, kí tự đặc biệt
     str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ");
     return str;
-}
+};
   const [search , setSearch] = useState("")
   const [weatherTask , setWeatherTask] = useState([]);
+   const urlCityName ='http://api.openweathermap.org/data/2.5/weather?q=London&appid=6150648e44d686852caa04818c28403d' 
+   const urlCityCirle = 'http://api.openweathermap.org/data/2.5/find?lat=16&lon=108&cnt=50&appid=6150648e44d686852caa04818c28403d'
   useEffect(()=>{
-      fetch('http://api.openweathermap.org/data/2.5/find?lat=21&lon=105.5&cnt=50&appid=6150648e44d686852caa04818c28403d')
+      fetch(urlCityCirle)
            .then(res => res.json())
            .then((data) => {
              setWeatherTask(data.list);
+            
              console.log("weather",weatherTask)
           })
            
   },[])
+  console.log("weather",weatherTask)
   const onHandleSearch = (keyword)=>{
       const result = removeVietnameseTones(keyword)
       console.log(result);
@@ -53,7 +57,7 @@ function App() {
 
   }
   useEffect(()=>{
-    console.log("hehê",weatherTask);
+    
     
   })
 
@@ -61,13 +65,10 @@ function App() {
     <div className="App">
        <div className="appWrapper">
         <Header onSearch1={onHandleSearch}></Header>
-        {/* <main id="Maincontent">
+        <main id="Maincontent">
           <div className="LargeScreens">
             <RegionMain></RegionMain>
-          </div>
-        </main> */}
-      </div>
-      {weatherTask
+            {weatherTask
         .filter((val) => {
           if (search == "") {
             return val;
@@ -76,18 +77,30 @@ function App() {
           }
         })
         .map((val, key) => {
-          return (
-            <div className="user" key={key}>
+          if (search != ""){
+                    return (
+              <div   key={key}>
               <WeatherDetailItem
                 name={val.name}
-                lon={val.main.temp}
+                lon={(val.main.temp-273.15).toFixed(0)}
                 wind={val.wind.speed}
                 humidity={val.main.humidity}
+                high={val.main.temp_max -273.15}
+                low={val.main.temp_min -273.15}
               ></WeatherDetailItem>
-            </div>
+             </div>
           );
+          } 
+  
         })}
+          </div>
+   
      
+        </main>
+
+
+      </div>
+      
     </div>
   );
 }
